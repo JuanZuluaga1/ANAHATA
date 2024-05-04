@@ -1,0 +1,54 @@
+*{
+    margin: 0;
+    padding: 0;
+
+}
+h1{
+    text-align: center;
+}
+main div img{
+    align-items: center;
+    height: 600px;
+}
+#carouselExampleAutoplaying{
+    padding: 20px;
+    margin: 0 60px;
+    
+}
+.textoCentral{
+    padding: 20px !important;
+    margin: 0 60px !important;
+    display: flex !important;
+    align-items: center !important;
+    flex-direction: row !important;
+    justify-content: space-evenly !important;
+}
+.textoCentral p{
+    font-size: 25px;
+    width: 500px;
+}
+h2{
+    text-align: center;
+}
+#contenedor{
+    display: flex !important;
+    flex-wrap: wrap;
+    margin: 40px;
+    padding: 20px;
+
+}
+.card{
+    display: flex;
+    flex-direction: column;
+    width: 260px;
+    height: 400px;
+    border: solid 1px black;
+    padding: 5px;
+    margin: 15px;
+}
+.imagenProd{
+    height: 250px;
+    width: 250px;
+    align-items: center;
+    overflow: hidden;
+}
