@@ -14,7 +14,9 @@ potteryArray.forEach(el => {
     nombre.innerText = el.nombre;
 
     const precio = document.createElement('p');
-    precio.innerText = `$${el.precio}`;
+    precio.innerText = `$${parseInt(el.precio).toLocaleString()}`;
+    precio.className = 'precio';
+
 
     const stock = document.createElement('p');
     stock.innerText = `hay disponibles: ${el.stock} productos`;

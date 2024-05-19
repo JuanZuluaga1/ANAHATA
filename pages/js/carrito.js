@@ -1,9 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const carritoProductos = JSON.parse(localStorage.getItem('carritoProductos')) || [];
+    let carritoProductos = JSON.parse(localStorage.getItem('carritoProductos')) || [];
     const carritoContenedor = document.getElementById('carrito');
 
     if (!carritoContenedor) {
-        console.error('No se encontró el contenedor del carrito.');
+        console.log('No se encontró el contenedor del carrito.');
         return;
     }
 
@@ -29,17 +29,29 @@ document.addEventListener('DOMContentLoaded', () => {
             carritoCard.appendChild(cantidadCarrito);
 
             const precioTotalCarrito = document.createElement('p');
-            precioTotalCarrito.innerText = `Precio total: $${producto.precioTotal.toFixed(2)}`;
+            precioTotalCarrito.innerText = `Precio total: $${producto.precioTotal.toLocaleString()}`;
             carritoCard.appendChild(precioTotalCarrito);
+
 
             totalGlobal += producto.precioTotal;
 
             carritoContenedor.appendChild(carritoCard);
+
         });
 
+        const limpiarCarritoButton = document.createElement('button');
+            limpiarCarritoButton.innerText = 'Eliminar Productos';
+            limpiarCarritoButton.addEventListener('click', () => {
+                carritoProductos = [];
+                mostrarCarrito();
+                localStorage.removeItem('carritoProductos');
+            });
+            carritoContenedor.appendChild(limpiarCarritoButton);
+
         const totalGlobalElement = document.createElement('p');
-        totalGlobalElement.innerText = `Total de sus productos: $${totalGlobal.toFixed(2)}`;
+        totalGlobalElement.innerText = `Total de los productos es: $${totalGlobal.toLocaleString()}`;
         carritoContenedor.appendChild(totalGlobalElement);
+        
     }
 
     mostrarCarrito();
