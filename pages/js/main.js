@@ -85,7 +85,6 @@ fetch("./js/productos.json")
             }
     
             localStorage.setItem('carritoProductos', JSON.stringify(carritoProductos));
-            console.log('Producto añadido al carrito:', carritoProductos);
     
             el.stock -= cantidad;
             stock.innerText = `hay disponibles: ${el.stock} productos`;

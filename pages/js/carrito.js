@@ -96,7 +96,6 @@ document.addEventListener('DOMContentLoaded', () => {
         carritoContenedor.appendChild(totalGlobalElement);
 
         localStorage.setItem('carritoProductos', JSON.stringify(carritoProductos));
-        console.log('Carrito actualizado:', carritoProductos);
     }
 
     function actualizarCarrito() {
