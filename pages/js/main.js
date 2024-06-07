@@ -81,6 +81,10 @@ potteryArray.forEach(el => {
         }
 
         localStorage.setItem('carritoProductos', JSON.stringify(carritoProductos));
+
+        el.stock -= cantidad;
+        stock.innerText = `hay disponibles: ${el.stock} productos`;
+        cantidadInput.max = el.stock; 
     });
 
 
