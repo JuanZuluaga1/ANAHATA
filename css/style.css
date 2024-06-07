@@ -1,30 +1,124 @@
-*{
+* {
     margin: 0;
     padding: 0;
-
+    box-sizing: border-box;
 }
-/* CSS navbar */
 
-.imgCarrito{
+body, html {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+}
+
+/* CSS navbar */
+.imgCarrito {
     list-style: none;
     height: 25px;
     width: 25px;
 }
+
+/* CSS footer */
+footer {
+    background-color: #f8f9fa;
+    padding: 20px 0;
+    width: 100%;
+    text-align: center;
+    color: #495057;
+    position: relative;
+}
+
+.contener {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    max-width: 100vw;
+}
+
+.footer-links a {
+    margin-right: 20px;
+    text-decoration: none;
+    color: #495057;
+    padding: 10px;
+}
+
+.footer-links a:hover {
+    color: #007bff;
+}
+
+.contacto-info p {
+    margin: 0;
+    font-size: 14px;
+    color: #495057;
+    padding: 10px;
+}
+
+.copyright {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    color: #495057;
+    padding: 20px;
+}
+
+.copyright p {
+    text-align: center;
+    margin: 20px;
+}
+
+/* Media queries para el footer */
+@media (max-width: 1440px) {
+    .copyright {
+        text-align: center;
+        color: #495057;
+        padding: 20px;
+    }
+    .copyright p {
+        text-align: center;
+        margin: 20px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1439px) {
+    .contenedor .footer-links a {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+@media (min-width: 425px) and (max-width: 767px) {
+    .contenedor .footer-links a {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 424px) {
+    .contenedor {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
 /* CSS para index */
-h1{
+h1 {
     text-align: center;
 }
-main div img{
+
+main div img {
     align-items: center;
     height: 600px;
 }
-#carouselExampleAutoplaying{
+
+#carouselExampleAutoplaying {
     padding: 20px;
     margin: 0 60px;
-    
 }
 
-.textoCentral{
+.textoCentral {
     padding: 20px !important;
     margin: 0 60px !important;
     display: flex !important;
@@ -32,22 +126,47 @@ main div img{
     flex-direction: row !important;
     justify-content: space-evenly !important;
 }
-.textoCentral p{
+
+.textoCentral p {
     font-size: 25px;
     width: 500px;
 }
-h2{
+
+h2 {
     text-align: center;
 }
+
+/* CSS para quienes somos */
+.paraFlex{
+    display: flex;
+    flex-direction: column;
+}
+.info {
+    text-align: center;
+    font-size: 25px;
+    padding: 70px !important;
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center; 
+}
+
+.info p {
+    width: 100%; 
+    margin-left: auto; 
+    margin-right: auto; 
+    text-align: center; 
+}
+
 /* CSS para productos.html */
-#contenedor{
+#contenedor {
     display: flex !important;
     flex-wrap: wrap;
     margin: 40px;
     padding: 20px;
-
 }
-.card{
+
+.card {
     display: flex;
     flex-direction: column;
     width: 260px;
@@ -56,19 +175,22 @@ h2{
     padding: 5px;
     margin: 15px;
 }
-.imagenProd{
+
+.imagenProd {
     height: 250px;
     width: 250px;
     align-items: center;
     overflow: hidden;
 }
+
 /* CSS carrito de compras */
-#carrito{
+#carrito {
     display: flex !important;
     flex-wrap: wrap;
     margin: 40px;
 }
-.carrito-card{
+
+.carrito-card {
     display: flex;
     flex-direction: column;
     width: 215px;
@@ -77,9 +199,93 @@ h2{
     padding: 5px;
     margin: 15px;
 }
-.carrito-card img{
+
+.carrito-card img {
     height: 200px;
     width: 200px;
     align-items: center;
     overflow: hidden;
+}
+
+/* CSS para contacto */
+.main-contactanos {
+    font-family: "Open Sans", sans-serif;
+    background-color: rgba(250, 250, 235, 0.534);
+    width: 100vw;
+    height: auto;
+}
+
+.grid-contactanos {
+    padding: 10px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas: 
+        "article-contactanos-1 mapa"
+        ". horario";
+}
+
+.article-contactanos-1 {
+    padding: 20px;
+    grid-area: article-contactanos-1;
+}
+
+.article-contactanos-1 h1 {
+    padding: 15px;
+}
+
+.mensaje {
+    width: 350px;
+    max-width: 350px;
+    height: 250px;
+}
+
+.article-contactanos-2 {
+    padding: 30px;
+}
+
+.mapa {
+    width: 400px;
+    max-width: 600px;
+    grid-area: mapa;
+}
+
+.horario {
+    padding: 30px;
+    list-style: square;
+}
+
+.horario li {
+    padding: 5px;
+}
+
+/* Media queries contactanos */
+@media (min-width: 768px) and (max-width: 1070px) {
+    .main-contactanos {
+        height: auto;
+    }
+
+    .main-contactanos .grid-contactanos {
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
+
+@media (min-width: 320px) and (max-width: 425px) {
+    .main-contactanos {
+        height: auto;
+    }
+
+    .main-contactanos .grid-contactanos {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .main-contactanos .grid-contactanos .article-contactanos-1 .mensaje {
+        width: 250px;
+        height: 150px;
+    }
+
+    .main-contactanos .grid-contactanos .mapa {
+        width: 250px;
+    }
 }
