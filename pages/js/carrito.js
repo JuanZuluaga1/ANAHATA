@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     let carritoProductos = JSON.parse(localStorage.getItem('carritoProductos')) || [];
     const carritoContenedor = document.getElementById('carrito');
+    let productosArray = [];
 
     if (!carritoContenedor) {
         console.log('No se encontró el contenedor del carrito.');
@@ -23,9 +24,15 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function obtenerStockDisponible(nombreProducto) {
-        const potteryArray = JSON.parse(localStorage.getItem('potteryArray')) || [];
-        const producto = potteryArray.find(producto => producto.nombre === nombreProducto);
+        const producto = productosArray.find(producto => producto.nombre === nombreProducto);
         return producto ? producto.stock : 0;
+    }
+
+    function actualizarStock(nombreProducto, cantidadVendida) {
+        const producto = productosArray.find(producto => producto.nombre === nombreProducto);
+        if (producto) {
+            producto.stock -= cantidadVendida;
+        }
     }
 
     function mostrarCarrito() {
@@ -89,11 +96,17 @@ document.addEventListener('DOMContentLoaded', () => {
         carritoContenedor.appendChild(totalGlobalElement);
 
         localStorage.setItem('carritoProductos', JSON.stringify(carritoProductos));
+        console.log('Carrito actualizado:', carritoProductos);
     }
 
     function actualizarCarrito() {
         mostrarCarrito();
     }
 
-    mostrarCarrito();
+    fetch("./js/productos.json")
+    .then(response => response.json())
+    .then(data => {
+        productosArray = data; 
+        mostrarCarrito();
+    })
 });
